@@ -1,0 +1,5 @@
+if id < 2 then
+    if a < b then
+        b <-- a
+    end if
+end if

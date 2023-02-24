@@ -1,0 +1,12 @@
+if id < 2.0 then
+    id <-- 3
+else
+    id <-- 1.0
+end if;
+if id < 2.0 then
+    id <-- 3
+end if;
+
+while x loop
+    x <-- 4
+end loop
