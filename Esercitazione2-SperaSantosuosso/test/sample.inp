@@ -1,0 +1,13 @@
+int main void(){
+    int a <-- 0 //ciao sono un commento
+    int b <--3
+
+    b = 345E4a
+
+    if(b>=a){
+        //a=b
+        /*b=a*/
+        printf("ciao wowo Mario
+        QUEUE")
+    }
+}
