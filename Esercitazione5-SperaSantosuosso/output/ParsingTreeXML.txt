@@ -1,0 +1,233 @@
+<ProgramOp> 
+	<FunDeclOp type = "float"> 
+		<Identifier val= "1"/> 
+		<ParDeclOp type = "integer" isOut = "false"> 
+			<Identifier val= "2"/> 
+			<Identifier val= "3"/> 
+		</ParDeclOp> 
+		<ParDeclOp type = "float" isOut = "false"> 
+			<Identifier val= "4"/> 
+		</ParDeclOp> 
+		<ParDeclOp type = "string" isOut = "true"> 
+			<Identifier val= "5"/> 
+		</ParDeclOp> 
+		<BodyOp> 
+			<VarDeclOp type = "TypeOp"> 
+				<IdInitOp> 
+					<Identifier val= "6"/> 
+				</IdInitOp> 
+			</VarDeclOp> 
+			<AssignStat> 
+				<Identifier val= "6"/> 
+				<Plus> 
+					<Plus> 
+						<Plus> 
+							<Identifier val= "2"/> 
+							<Identifier val= "4"/> 
+						</Plus> 
+						<Identifier val= "7"/> 
+					</Plus> 
+					<Identifier val= "3"/> 
+				</Plus> 
+			</AssignStat> 
+			<IfStatOp> 
+				<GtOp>
+					<Identifier val= "6"/> 
+					<Integer val= "100"/> 
+				</GtOp>
+				<BodyOp> 
+					<VarDeclOp type = "TypeOp"> 
+						<IdInitOp> 
+							<Identifier val= "8"/> 
+							<StringConst val= "grande"/> 
+						</IdInitOp> 
+					</VarDeclOp> 
+					<AssignStat> 
+						<Identifier val= "5"/> 
+						<Identifier val= "8"/> 
+					</AssignStat> 
+				</BodyOp> 
+				<BodyOp> 
+					<VarDeclOp type = "TypeOp"> 
+						<IdInitOp> 
+							<Identifier val= "8"/> 
+							<StringConst val= "piccola"/> 
+						</IdInitOp> 
+					</VarDeclOp> 
+					<AssignStat> 
+						<Identifier val= "5"/> 
+						<Identifier val= "8"/> 
+					</AssignStat> 
+				</BodyOp> 
+			</IfStatOp> 
+			</Return> 
+			<Identifier val= "6"/> 
+		</BodyOp> 
+	</FunDeclOp> 
+	<VarDeclOp type = "TypeOp"> 
+		<IdInitOp> 
+			<Identifier val= "7"/> 
+			<Integer val= "1"/> 
+		</IdInitOp> 
+	</VarDeclOp> 
+	<FunDeclOp type = "void"> 
+		<Identifier val= "9"/> 
+		<BodyOp> 
+			<VarDeclOp type = "TypeOp"> 
+				<IdInitOp> 
+					<Identifier val= "2"/> 
+					<Integer val= "1"/> 
+				</IdInitOp> 
+				<IdInitOp> 
+					<Identifier val= "4"/> 
+					<RealConst val= "2.2"/> 
+				</IdInitOp> 
+				<IdInitOp> 
+					<Identifier val= "10"/> 
+					<Integer val= "3"/> 
+				</IdInitOp> 
+			</VarDeclOp> 
+			<VarDeclOp type = "TypeOp"> 
+				<IdInitOp> 
+					<Identifier val= "11"/> 
+				</IdInitOp> 
+				<IdInitOp> 
+					<Identifier val= "12"/> 
+				</IdInitOp> 
+			</VarDeclOp> 
+			<VarDeclOp type = "TypeOp"> 
+				<IdInitOp> 
+					<Identifier val= "13"/> 
+					<StringConst val= "no"/> 
+				</IdInitOp> 
+			</VarDeclOp> 
+			<VarDeclOp type = "TypeOp"> 
+				<IdInitOp> 
+					<Identifier val= "14"/> 
+					<FunCallOp> 
+						<Identifier val= "1"/> 
+						<Identifier val= "2"/> 
+						<Identifier val= "10"/> 
+						<Identifier val= "4"/> 
+						<Identifier val= "11"/> 
+					</FunCallOp> 
+				</IdInitOp> 
+			</VarDeclOp> 
+			<FunCallOp> 
+				<Identifier val= "15"/> 
+				<StringConst val= "la somma  incrementata  è "/> 
+			</FunCallOp> 
+			<WriteStatOp> 
+				<Identifier val= "11"/> 
+				<StringConst val= "writeln"/> 
+			</WriteStatOp> 
+			<FunCallOp> 
+				<Identifier val= "15"/> 
+				<StringConst val= " ed è pari a "/> 
+			</FunCallOp> 
+			<WriteStatOp> 
+				<Identifier val= "14"/> 
+				<StringConst val= "writeln"/> 
+			</WriteStatOp> 
+			<WriteStatOp> 
+				<StringConst val= "vuoi continuare? (si/no) - inserisci due volte la risposta"/> 
+				<StringConst val= "writeln"/> 
+			</WriteStatOp> 
+			<ReadStatOp> 
+				<Identifier val= "13"/> 
+				<Identifier val= "12"/> 
+			</ReadStatOp> 
+			<WhileStatOp> 
+				<Eq>
+					<Identifier val= "13"/> 
+					<StringConst val= "si"/> 
+				</Eq>
+				<BodyOp> 
+					<ReadStatOp> 
+						<Identifier val= "2"/> 
+						<StringConst val= "inserisci un intero:"/> 
+					</ReadStatOp> 
+					<ReadStatOp> 
+						<Identifier val= "4"/> 
+						<StringConst val= "inserisci un reale:"/> 
+					</ReadStatOp> 
+					<AssignStat> 
+						<Identifier val= "14"/> 
+						<FunCallOp> 
+							<Identifier val= "1"/> 
+							<Identifier val= "2"/> 
+							<Identifier val= "10"/> 
+							<Identifier val= "4"/> 
+							<Identifier val= "11"/> 
+						</FunCallOp> 
+					</AssignStat> 
+					<FunCallOp> 
+						<Identifier val= "15"/> 
+						<StringConst val= "la somma  incrementata  è "/> 
+					</FunCallOp> 
+					<WriteStatOp> 
+						<Identifier val= "11"/> 
+						<StringConst val= "writeln"/> 
+					</WriteStatOp> 
+					<FunCallOp> 
+						<Identifier val= "15"/> 
+						<StringConst val= " ed è pari a "/> 
+					</FunCallOp> 
+					<WriteStatOp> 
+						<Identifier val= "14"/> 
+						<StringConst val= "writeln"/> 
+					</WriteStatOp> 
+					<ReadStatOp> 
+						<Identifier val= "13"/> 
+						<StringConst val= "vuoi continuare? (si/no):"/> 
+					</ReadStatOp> 
+				</BodyOp> 
+			</WhileStatOp> 
+			<WriteStatOp> 
+				<StringConst val= ""/> 
+				<StringConst val= "writeln"/> 
+			</WriteStatOp> 
+			<WriteStatOp> 
+				<StringConst val= "ciao"/> 
+				<StringConst val= "write"/> 
+			</WriteStatOp> 
+		</BodyOp> 
+	</FunDeclOp> 
+	<MainFunDeclOp> 
+		<FunDeclOp type = "void"> 
+			<Identifier val= "15"/> 
+			<ParDeclOp type = "string" isOut = "false"> 
+				<Identifier val= "16"/> 
+			</ParDeclOp> 
+			<BodyOp> 
+				<VarDeclOp type = "TypeOp"> 
+					<IdInitOp> 
+						<Identifier val= "2"/> 
+					</IdInitOp> 
+				</VarDeclOp> 
+				<VarDeclOp type = "TypeOp"> 
+					<IdInitOp> 
+						<Identifier val= "17"/> 
+					</IdInitOp> 
+				</VarDeclOp> 
+				<ForStatOp> 
+					<IdInitOp> 
+						<Identifier val= "10"/> 
+						<Integer val= "4"/> 
+					</IdInitOp> 
+					<Integer val= "1"/> 
+					<BodyOp> 
+						<WriteStatOp> 
+							<StringConst val= ""/> 
+							<StringConst val= "writeln"/> 
+						</WriteStatOp> 
+					</BodyOp> 
+				</ForStatOp> 
+				<WriteStatOp> 
+					<Identifier val= "16"/> 
+					<StringConst val= "writeln"/> 
+				</WriteStatOp> 
+			</BodyOp> 
+		</FunDeclOp> 
+	</MainFunDeclOp> 
+</ProgramOp> 

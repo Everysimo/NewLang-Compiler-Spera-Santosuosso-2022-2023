@@ -1,0 +1,196 @@
+start: def aritmeticOp(): void{
+	integer continua << 1;
+	integer aInt << 0 ,bInt << 0,resultInt << 0,sceltaOp << 0,sceltaType << 0;
+	float aFloat << 0.0 ,bFloat << 0.0,risultatoFloat << 0.0;
+
+	while (continua = 1) loop{
+		sceltaOp << 0;
+		sceltaType << 0;
+
+		aInt << 0 ;
+		bInt << 0;
+		resultInt << 0;
+
+		aFloat << 0.0 ;
+		bFloat << 0.0;
+		risultatoFloat << 0.0;
+
+		while ( sceltaOp <> 1 and sceltaOp <> 2 and sceltaOp <> 3 and sceltaOp <> 4 and sceltaOp <> 5 and sceltaOp <> 6 and sceltaOp <> 7) loop{
+			("Quale fra queste operazioni vuoi svolgere?")-->! ;
+			("1) Somma (a+b) ")-->! ;
+			("2) Sottrazione (a-b)")-->! ;
+			("3) Divisione (a/b)")-->! ;
+			("4) Prodotto (a*b)")-->! ;
+			("5) Moltiplicazione tramite Somma (a*b)")-->! ;
+			("6) Potenza tramite prodotto (a^b)")-->! ;
+			("7) Fibonacci")-->! ;
+
+			("")-->! ;
+			sceltaOp <-- "Digita il numero corrispondente all operazione che vuoi eseguire: ";
+		}
+
+		if(sceltaOp = 7) then{
+            sceltaType << 1;
+        }
+
+		while(sceltaType <> 1 and sceltaType <> 2) loop{
+			("Che tipo di numeri vuoi usare")-->! ;
+			("1) Interi ")-->! ;
+			("2) Reali ")-->! ;
+
+			("")-->! ;
+			sceltaType <-- "Digita il numero corrispondente al tipo di numeri che vuoi usare: ";
+		}
+
+		if(sceltaType = 1) then{
+			aInt <-- "inserisci valore primo operando a: ";
+			if(sceltaOp <> 7) then{
+			    bInt <-- "inserisci valore secondo operando b: ";
+			}
+
+			if(sceltaOp = 1) then{
+				resultInt << sommaInt(aInt,bInt);
+			}
+			if(sceltaOp = 2) then{
+				resultInt << differenzaInt(aInt,bInt);
+			}
+			if(sceltaOp = 3) then{
+				divisioneInt(aInt,bInt, resultInt);
+			}
+			if(sceltaOp = 4) then{
+				prodottoInt(aInt,bInt, resultInt);
+			}
+			if(sceltaOp = 5) then{
+            	prodottoSommaInt(aInt,bInt, resultInt);
+            }
+            if(sceltaOp = 6) then{
+               potenzaInt(aInt,bInt, resultInt);
+            }
+            if(sceltaOp = 7) then{
+               resultInt << fibonacci(aInt);
+            }
+            ("RISULTATO : ",resultInt)-->!;
+		}
+
+		if(sceltaType = 2) then{
+			aFloat <-- "inserisci valore primo operando a: ";
+			bFloat <-- "inserisci valore secondo operando b: ";
+
+			if(sceltaOp = 1) then{
+				risultatoFloat << sommaFloat(aFloat,bFloat);
+			}
+			if(sceltaOp = 2) then{
+				risultatoFloat << differenzaFloat(aFloat,bFloat);
+			}
+			if(sceltaOp = 3) then{
+				risultatoFloat << divisioneFloat(aFloat,bFloat);
+			}
+			if(sceltaOp = 4) then{
+				prodottoFloat(aFloat,bFloat, risultatoFloat);
+			}
+			if(sceltaOp = 5) then{
+                prodottoSommaFloat(aFloat,bFloat, risultatoFloat);
+            }
+            if(sceltaOp = 6) then{
+                potenzaFloat(aFloat,bFloat, risultatoFloat);
+            }
+			("RISULTATO : ",risultatoFloat)-->!;
+		}
+
+
+        continua << 2;
+		continua <-- "vuoi continuare? (1=si/0=no)" ;
+
+		while(continua <> 0 and continua != 1) loop{
+			("Inserisci un valore valido")-->! ;
+			continua <-- "vuoi continuare? (1=si/0=no)" ;
+		}
+		if(continua = 0) then {
+		    return;
+		}
+
+	}
+
+}
+
+def sommaInt(integer a, b): integer{
+	return a+b;
+}
+
+def fibonacci(integer a): integer{
+    integer rw;
+    if(a = 0) then{
+        return 0;
+    }
+    if(a = 1) then{
+        return 1;
+    }
+    rw << fibonacci(a-1) + fibonacci(a-2);
+    return fibonacci(a-1) + fibonacci(a-2);
+}
+
+
+def differenzaInt(integer a,b) : integer{
+	return a-b;
+}
+
+def divisioneInt(integer a,b |out integer risultato):void{
+	risultato << a/b;
+	return;
+}
+
+def prodottoInt(integer a,b | out integer risultato):void{
+	risultato << a*b;
+	return;
+}
+
+def prodottoSommaInt(integer a,b | out integer risultato):void{
+    integer i << 0;
+    while i < b loop{
+        i << i + 1;
+        risultato << risultato + a;
+    }
+	return;
+}
+
+def potenzaInt(integer a,b | out integer risultato):void{
+    integer i << 0;
+    risultato << 1;
+    while i < b loop{
+        i << i + 1;
+        risultato << risultato * a;
+    }
+	return;
+}
+
+def sommaFloat(float a, b): float{
+	return a+b;
+}
+
+def differenzaFloat(float a, b) : float{
+	return a-b;
+}
+
+def divisioneFloat(float a, b): float{
+	return a/b;
+}
+
+def prodottoFloat(float a, b | out float risultato): void{
+	risultato << a*b;
+	return;
+}
+
+def prodottoSommaFloat(float a, b | out float risultato): void{
+	integer i << 0;
+        while i < b loop{
+            i << i + 1;
+            risultato << risultato + a;
+        }
+	return;
+}
+
+def potenzaFloat(float a, b | out float risultato):void{
+    risultato << a^b;
+
+	return;
+}
