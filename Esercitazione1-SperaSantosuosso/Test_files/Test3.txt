@@ -1,0 +1,11 @@
+Public static void main(){
+	int a;
+	float b <-- 14.6;
+	float c <-- 16.22E+2;
+	if(b<c){
+		a <-- 1;
+	}
+	else
+		a <-- 0;
+
+}
