@@ -1,0 +1,15 @@
+<ProgramOp> 
+	<MainFunDeclOp> 
+		<FunDeclOp type = "void"> 
+			<Identifier val= "1"/> 
+			<BodyOp> 
+				<VarDeclOp type = "integer"> 
+					<IdInitOp> 
+						<Identifier val= "2"/> 
+						<CharConst val= "9"/> 
+					</IdInitOp> 
+				</VarDeclOp> 
+			</BodyOp> 
+		</FunDeclOp> 
+	</MainFunDeclOp> 
+</ProgramOp> 
