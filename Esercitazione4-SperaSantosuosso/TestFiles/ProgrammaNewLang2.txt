@@ -1,0 +1,198 @@
+|*
+ Questo programma mostra all utente un menù dove può scegliere di effettuare un operazione fra due numeri.
+|
+
+
+||FUNZIONI TRA INTERI
+||Funzione per la somma
+||FUNZIONI TRA INTEGER
+||Funzione per la somma
+
+def sommaInt (integer a,b): integer {
+	integer result;
+	result << a + b;
+	return result;
+}
+
+||Funzione per la sottrazione
+def sottInt (integer a,b): integer {
+	integer result;
+	result << a - b;
+	return result;
+}
+
+||Funzione per la moltiplicazione
+def moltInt (integer a,b|out integer result): void {
+	result << a * b;
+	return;
+}
+
+||Funzione per la divisione
+def divInt (integer a,b | out float result): void {
+	result << a / b;
+	return;
+}
+
+
+||FUNZIONI TRA FLOAT
+||Funzione per la somma
+def sommaFloat (float a,b): float {
+	float result;
+	result << a + b;
+	return result;
+}
+
+||Funzione per la sottrazione
+def sottFloat (float a,b): float {
+	float result;
+	result << a - b;
+	return result;
+}
+
+||Funzione per la moltiplicazione
+def moltFloat (float a,b | out float result): void {
+	result << a * b;
+	return;
+}
+
+||Funzione per la divisione
+def divFloat (float a,b | out float result): void {
+	result << a / b;
+	return;
+}
+
+
+||Programma principale
+start:
+def operazioni(): void{
+	integer num1,nun2,resultInt;
+	float f1,f2,resultFloat;
+	string sceltaOp << "6";
+	string sceltaTipoOp << "0" ;
+
+	("Questo programma è stato realizzato per effettuare operazioni fra interi o reali") -->!;
+
+	while sceltaOp != "0" loop {
+
+		while sceltaTipoOp != "1" or sceltaTipoOp != "2" loop {
+
+			("Vuoi effettuare un operazione fra interi (1) o fra reali (2)") -->;
+			sceltaTipoOp <--;
+
+
+			if sceltaTipoOp = "1" then{
+
+				while sceltaOp != "0" or sceltaOp != "1" or sceltaOp != "2" or sceltaOp != "3" or sceltaOp != "4" loop {
+					("Scegli l operazione") -->!;
+					("1 - Somma") -->!;
+					("2 - Sottrazione") -->!;
+					("3 - Moltiplicazione") -->!;
+					("4 - Divisione") -->!;
+					("0 - Esci dal programma") -->!;
+
+					sceltaOp <--;
+				}
+
+				num1,num2 <-- "Inserisci il primo e il secondo numero";
+
+				if sceltaOp = "4" then {
+					resultFloat << executionOpInt(sceltaO, num1,num2);
+					("Il risultato dell operazione è" & resultFloat) -->!;
+				}
+				if sceltaOp = "0" then{
+					return;
+				} else {
+					resultInt << executionOpInt(sceltaOp,num1,num2);
+					("Il risultato dell operazione è" & resultInt) -->!;
+				}
+
+			}
+			if sceltaTipoOp = "2" then {
+
+				while sceltaOp != "0" or sceltaOp != "1" or sceltaOp != "2" or sceltaOp != "3" or sceltaOp != "4" loop {
+					("Scegli l operazione") -->!;
+                    ("1 - Somma") -->!;
+                    ("2 - Sottrazione") -->!;
+                    ("3 - Moltiplicazione") -->!;
+                    ("4 - Divisione") -->!;
+                    ("0 - Esci dal programma") -->!;
+
+
+					sceltaOp <--;
+				}
+
+				f1,f2 <-- "Inserisci il primo e il secondo numero";
+
+				if sceltaOp = "0" then {
+					return;
+				} else {
+					resultInt << executionOpFloat(sceltaOp,f1,f2);
+                ("Il risultato dell operazione è" & resultInt) -->!;
+				}
+
+			}
+		}
+		("Vuoi eseguire un altra operazione? (Si (1) / No (0))") -->!;
+		sceltaOp <--;
+	}
+
+	return;
+}
+
+|*Questa funzione esegue un operazione su numeri interi, in base alla scelta fatta dall utente.|
+def executionOpInt (string sceltaOp | integer num1,num2):integer{
+
+	string result << "0";
+
+	if sceltaOp = "1" then {
+		result << sommaInt(num1,num2);
+	}
+
+
+	if sceltaOp = "2" then {
+		result << sottInt(num1,num2);
+	}
+
+
+	if sceltaOp = "3" then {
+		moltInt(num1,num2,result);
+	}
+
+
+	if sceltaOp = "4" then {
+		divInt(num1,num2,result);
+	}
+
+	return result;
+}
+
+
+
+|| Questa funzione esegue un operazione su numeri float, in base alla scelta fatta dall utente.
+def executionOpFloat (string sceltaOp | float num1,num2):float{
+
+	integer result << 0;
+	
+	if sceltaOp = "1"  then {
+		result << sommaFloat(num1,num2);
+	}
+
+	if sceltaOp = "2" then {
+		result << sottFloat(num1,num2);
+	}
+
+
+	if sceltaOp = "3" then {
+		moltFloat(num1,num2,result);
+	}
+
+
+	if sceltaOp = "4" then {
+		divFloat(num1,num2,result);
+	}
+
+
+	return result;
+}
+
+

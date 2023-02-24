@@ -1,0 +1,132 @@
+start: def aritmeticOp(): void{
+	integer continua << 1;
+	integer aInt << 0 ,bInt << 0,resultInt << 0,sceltaOp << 0,sceltaType << 0;
+	float aFloat << 0.0 ,bFloat << 0.0,resultFloat << 0.0;
+
+	while (continua = 1) loop{
+		sceltaOp << 0;
+		sceltaType << 0;
+
+		aInt << 0 ;
+		bInt << 0;
+		resultInt << 0;
+
+		aFloat << 0.0 ;
+		bFloat << 0.0;
+		resultFloat << 0.0;
+
+		while ( sceltaOp <> 1 or sceltaOp <> 2 or sceltaOp <> 3 or sceltaOp <> 4) loop{
+			("Quale fra queste operazioni vuoi svolgere?")-->! ;
+			("1) Somma (a+b) ")-->! ;
+			("2) Sottrazione (a-b)")-->! ;
+			("3) Divisione (a/b)")-->! ;
+			("4) Prodotto (a*b)")-->! ;
+
+			("")-->! ;
+			sceltaOp <-- "Digita il numero corrispondente all operazione che vuoi eseguire: ";
+		}
+
+		while(sceltaType <> 1 or sceltaType <> 2) loop{
+			("Che tipo di numeri vuoi usare")-->! ;
+			("1) Interi ")-->! ;
+			("2) Reali ")-->! ;
+
+			("")-->! ;
+			sceltaType <-- "Digita il numero corrispondente al tipo di numeri che vuoi usare: ";
+		}
+
+		if(sceltaType = 1) then{
+			aInt <-- "inserisci valore primo operando a: ";
+			bInt <-- "inserisci valore secondo operando b: ";
+
+			if(sceltaOp = 1) then{
+				resultInt << sommaInt(aInt,bInt);
+			}
+			if(sceltaOp = 2) then{
+				resultInt << differenzaInt(aInt,bInt);
+			}
+			if(sceltaOp = 3) then{
+				divisioneInt(aInt,bInt, risultatoFloat);
+			}
+			if(sceltaOp = 4) then{
+				prodottoInt(aInt,bInt, resultInt);
+			}
+
+		}
+
+		if(sceltaType = 2) then{
+			aFloat <-- "inserisci valore primo operando a: ";
+			bFloat <-- "inserisci valore secondo operando b: ";
+
+			if(sceltaOp = 1) then{
+				risultatoFloat << sommaFloat(aFloat,bFloat);
+			}
+			if(sceltaOp = 2) then{
+				risultatoFloat << differenzaFloat(aFloat,bFloat);
+			}
+			if(sceltaOp = 3) then{
+				risultatoFloat << divisioneFloat(aFloat,b);
+			}
+			if(sceltaOp = 4) then{
+				prodotto(aFloat,b, risultatoFloat);
+			}
+		}
+
+
+
+		continua <-- "vuoi continuare? (1=si/0=no)" ;
+
+		while(continua <> 0 or continua != 1) loop{
+			("Inserisci un valore valido")-->! ;
+			continua <-- "vuoi continuare? (1=si/0=no)" ;
+		}
+		return;
+	}
+
+}
+
+|| stampa il messaggio dopo 4 ritorni a capo
+def stampa(string messaggio): void {
+
+	for i << 1 to 4 loop {
+		("")-->!;
+	}
+
+	(messaggio)-->;
+
+}
+
+def sommaInt(integer a,b): integer{
+	return a+b;
+}
+
+def differenzaInt(integer a,b) : integer{
+	return a-b;
+}
+
+def divisioneInt(integer a,b |out float risultato):void{
+	risultato << a/b;
+	return;
+}
+
+def prodottoInt(integer a,b | out integer risulato):void{
+	risultato << a*b;
+	return;
+}
+
+def sommaFloat(float a, b): float{
+	return a+b;
+}
+
+def differenzaFloat(float a, b) : float{
+	return a-b;
+}
+
+def divisioneFloat(float a, b): float{
+	return a/b;
+}
+
+def prodottoFloat(float a, b | out float risulato): void{
+	risultato << a*b;
+	return;
+}
